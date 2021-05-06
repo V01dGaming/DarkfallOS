@@ -1,0 +1,34 @@
+os.pullEvent = os.pullEventRaw
+
+-- Var Start
+local a = require("/Sys/APIs/GApi")
+local PE = "Please Enter Your "
+local LIU = a.load("/Sys/.Users")
+--local LIP = a.load("/Sys/.Passwords")
+-- Var End
+
+-- Program Start
+a.reset1()
+a.t(PE .. "Username.")
+write("Username> ")
+
+local IU = string.lower(read())
+
+a.s(1)
+a.t(PE .. "Password.")
+write("Password> ")
+
+local IP = string.reverse(read("*"))
+
+if LIU.User1 == IU and LIU.Pass1 == IP or LIU.User2 == IU and LIU.Pass2 == IP then
+    a.reset2()
+    a.t("Access Granted!")
+    a.t("Please Wait...")
+    a.s(2)
+    a.r("/Sys/.Menu")
+else
+    a.reset2()
+    a.t("Access Denied!")
+end
+
+-- Program End

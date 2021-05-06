@@ -1,0 +1,85 @@
+local c = {}
+
+function r()
+    term.setCursorPos(1,1)
+    term.clear()
+end
+
+function s(num)
+    for i = 1, num do
+        print()
+    end
+end
+
+function OSN()
+    print("DarkfallOS")
+end
+
+function t(text)
+    textutils.slowPrint(text)
+end
+
+function p(text)
+    print(text)
+end
+
+function w(num)
+    sleep(num)
+end
+
+function H()
+    r()
+    OSN()
+    s(2)
+end
+
+function Boot1()
+    H()
+    p("Copyright 2021 V01d Inc.")
+    w(1)
+    p("OS Version: V1.0")
+    w(1)
+    p("10k Ram System")
+    w(1)
+    p("300 Bytes Free")
+    w(1)
+    p("Loading Rom(1): TheV01d V1.2")
+    w(2)
+end
+
+function LB(progress)
+    p("[" .. progress .. "]")
+end
+
+function Boot2()
+    local Int = "Initiating OS, please be patient."
+    H()
+    p(Int)
+    s(1)
+    LB("###       ")
+    w(1)
+    H()
+    p(Int)
+    s(1)
+    LB("######    ")
+    w(1)
+    H()
+    p(Int)
+    s(1)
+    LB("##########")
+    w(1)
+end
+
+function Boot3()
+    H()
+    t("Boot Success!")
+    w(2)
+end
+
+function c.Boot()
+    Boot1()
+    Boot2()
+    Boot3()
+end
+
+return c

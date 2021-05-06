@@ -1,0 +1,94 @@
+-- Commands Start
+    -- a.clr()
+        -- Clears screen and resets pos
+    -- a.w(number)
+        -- Waits the amt in seconds
+    -- a.t(text)
+        -- Slow prints the text
+    -- a.p(text)
+        -- Prints the text
+    -- a.s(number)
+        -- Skips however many lines you put
+    -- a.load(file)
+        -- reads the file given
+    -- a.OSN1t()
+        -- Slow prints "DarkfallOS ~ V01d Inc. (TM)"
+    -- a.OSN1p()
+        -- Prints "DarkfallOS ~ V01d Inc. (TM)"
+    -- a.OSN2t()
+        -- Slow Prints "DarkfallOS"
+    -- a.OSN2p()
+        -- Prints "DarkfallOS"
+    -- a.r(file)
+        -- Runs the given
+    -- a.reset1()
+        -- Clears the screen and types the OS name
+    -- a.reset2()
+        -- Clears the screen and prints the OS name
+-- Commands End
+
+local a = {}
+
+function a.clr()
+    term.setCursorPos(1,1)
+    term.clear()
+end
+
+function a.w(num)
+    sleep(num)
+end
+
+function a.t(text)
+    textutils.slowPrint(text)
+end
+
+function a.p(text)
+    print(text)
+end
+
+function a.s(num)
+    for i = 1, num do
+        print()
+    end
+end
+
+function a.load(file)
+    f = fs.open(file, "r")
+    contents = textutils.unserialise(f.readAll())
+    f.close()
+    return contents
+end
+
+function a.OSN1t()
+    a.t("DarkfallOS ~ V01d Inc. (TM)")
+end
+
+function a.OSN1p()
+    a.p("DarkfallOS ~ V01d Inc. (TM)")
+end
+
+function a.OSN2t()
+    a.t("DarkfallOS")
+end
+
+function a.OSN2p()
+    a.p("DarkfallOS")
+end
+
+function a.r(file)
+    shell.run(file)
+end
+
+function a.reset1()
+    a.clr()
+    a.OSN1t()
+    a.s(2)
+end
+
+function a.reset2()
+    a.clr()
+    a.OSN1p()
+    a.s(2)
+end
+
+return a
