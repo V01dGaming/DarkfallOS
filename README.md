@@ -1,2 +1,0 @@
-# DarkfallOS
-CC Operating System
